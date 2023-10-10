@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
                     }.collect()
                 }
                 SlideTransition(navigate)
-                CurrentScreen()
+//                CurrentScreen()
             }
         }
     }
