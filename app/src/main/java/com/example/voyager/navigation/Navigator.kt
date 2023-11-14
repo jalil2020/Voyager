@@ -8,4 +8,5 @@ typealias AppScreen = AndroidScreen
 interface Navigator {
     suspend fun navigateTo(screen: AppScreen)
     suspend fun back()
+    suspend fun backResult(screen: AppScreen)
 }
