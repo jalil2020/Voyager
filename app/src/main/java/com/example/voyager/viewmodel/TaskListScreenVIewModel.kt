@@ -11,13 +11,15 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TaskListScreenVIewModel @Inject constructor(private val navigator: Navigator) : ViewModel() {
-    val uiState = MutableStateFlow(TaskListScreenIntentUiState(""))
+    val uiState = MutableStateFlow(TaskListScreenIntentUiState("0"))
 
     fun onAction(action: TaskListScreenIntent) {
         when (action) {
             is TaskListScreenIntent.NextScreen -> {
                 viewModelScope.launch {
-                    navigator.navigateTo(TaskDetailScreen(10))
+                    navigator.navigateTo(TaskDetailScreen(10){
+                        uiState.value.data = it
+                    })
                 }
             }
         }

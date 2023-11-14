@@ -16,7 +16,7 @@ import com.example.voyager.viewmodel.TaskListScreenIntent
 import com.example.voyager.viewmodel.TaskListScreenIntentUiState
 import com.example.voyager.viewmodel.TaskListScreenVIewModel
 
-class TaskListScreen : AndroidScreen() {
+class TaskListScreen(val x: String? = null) : AndroidScreen() {
     @Composable
     override fun Content() {
         val viewModel = getViewModel<TaskListScreenVIewModel>()
@@ -37,7 +37,7 @@ class TaskListScreen : AndroidScreen() {
             Button(onClick = {
                 onAction(TaskListScreenIntent.NextScreen)
             }) {
-                Text(text = "Next screen")
+                Text(text = "count: ${x ?: "0"}")
             }
 
         }
